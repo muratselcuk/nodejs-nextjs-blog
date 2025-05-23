@@ -1,0 +1,25 @@
+# .gitignore
+blog.sqlite
+*.sqlite
+
+# Ortak
+.env*
+*.log
+sqlite.db
+
+# Node.js bağımlılıkları
+backend/node_modules/
+frontend/node_modules/
+
+# Next.js build klasörü
+frontend/.next/
+
+# Diğer build/artık dosyalar
+dist/
+build/
+coverage/
+
+# IDE/editor dosyaları
+.vscode/
+*.swp
+.DS_Store

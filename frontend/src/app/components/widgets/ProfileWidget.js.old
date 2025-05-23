@@ -1,0 +1,33 @@
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import author from '@/config/author'; // yazar bilgilerini buradan çekiyoruz
+
+export default function ProfileWidget() {
+  return (
+    <div className="bg-white rounded-xl shadow-md p-4 text-center">
+      <Image
+        src="/images/profile.jpg" // `public/images/profile.jpg` içine koy
+        alt={author.name}
+        width={96}
+        height={96}
+        className="mx-auto rounded-full"
+      />
+      <h3 className="text-lg font-semibold mt-2">{author.name}</h3>
+      <p className="text-sm text-gray-600">{author.bio}</p>
+
+      <div className="flex justify-center mt-3 space-x-3 text-blue-600 text-sm">
+        {author.social.github && (
+          <Link href={author.social.github} target="_blank">GitHub</Link>
+        )}
+        {author.social.linkedin && (
+          <Link href={author.social.linkedin} target="_blank">LinkedIn</Link>
+        )}
+        {author.social.scholar && (
+          <Link href={author.social.scholar} target="_blank">Scholar</Link>
+        )}
+      </div>
+    </div>
+  );
+}
