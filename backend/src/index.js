@@ -1,12 +1,12 @@
+const dotenv = require('dotenv');
+dotenv.config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const dotenv = require('dotenv');
-const sqlite3 = require('sqlite3');
+const Database  = require('better-sqlite3');
 const postRoutes = require('./routes/postRoutes');
 const authorRoutes = require('./routes/authorRoutes');
 
-dotenv.config();
 
 const app = express();
 app.use(cors());
@@ -21,7 +21,7 @@ if (!process.env.SQLITE_PATH) {
 }
 
 const dbPath = process.env.SQLITE_PATH;
-const db = new sqlite3.Database(dbPath);
+const db = new Database(dbPath);
 
 
 // db nesnesini ihtiyaç duyan diğer dosyalara da aktarmak gerekirse:

@@ -6,11 +6,12 @@ import Link from 'next/link';
 
 export default function ProfileWidget() {
   const [author, setAuthor] = useState(null);
+  
 
   useEffect(() => {
     const fetchAuthor = async () => {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/author`);
+        const res = await fetch(`/api/author`);
         const data = await res.json();
         setAuthor(data);
       } catch (error) {
@@ -20,7 +21,7 @@ export default function ProfileWidget() {
 
     fetchAuthor();
   }, []);
-
+console.log("🧑 Gelen author:", author)
   if (!author) {
     return <p className="text-center text-gray-400">Yükleniyor...</p>;
   }
@@ -51,3 +52,4 @@ export default function ProfileWidget() {
     </div>
   );
 }
+

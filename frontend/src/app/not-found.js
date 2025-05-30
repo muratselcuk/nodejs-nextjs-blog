@@ -1,4 +1,5 @@
 // src/app/not-found.js
+import Link from 'next/link';
 
 export default function NotFound() {
   return (
@@ -7,7 +8,7 @@ export default function NotFound() {
       <p className="text-gray-500 mb-4">
         Aradığınız sayfa bulunamadı. Lütfen adresi kontrol edin veya ana sayfaya dönün.
       </p>
-      <a href="/" className="text-blue-600 hover:underline">Ana Sayfaya Dön</a>
+      <Link href="/">Ana sayfaya dön</Link>
     </main>
   );
 }

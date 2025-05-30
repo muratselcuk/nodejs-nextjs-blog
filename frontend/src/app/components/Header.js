@@ -10,8 +10,8 @@ export default function Header() {
   useEffect(() => {
     async function fetchData() {
       const [pagesRes, authorRes] = await Promise.all([
-        fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/pages?place=header`),
-        fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/author`),
+        fetch(`/api/pages?place=header`),
+        fetch(`/api/author`),
       ]);
 
       const pageData = await pagesRes.json();

@@ -1,6 +1,7 @@
 # .gitignore
 blog.sqlite
 *.sqlite
+/data/blog.sqlite
 
 # Ortak
 .env*

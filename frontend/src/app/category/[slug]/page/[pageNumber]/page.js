@@ -4,7 +4,7 @@ import Image from 'next/image';
 const POSTS_PER_PAGE = 5;
 
 async function getPostsByCategory(slug) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/category/${slug}`, {
+  const res = await fetch(`${process.env.API_BASE_URL}/api/category/${slug}`, {
     cache: 'no-store',
   });
 

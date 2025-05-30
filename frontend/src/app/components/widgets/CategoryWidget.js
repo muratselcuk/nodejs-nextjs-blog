@@ -8,8 +8,9 @@ export default function CategoryWidget() {
 
   useEffect(() => {
     async function fetchCategories() {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/categories`);
+      const res = await fetch(`/api/categories`);
       const data = await res.json();
+      console.log("📦 Gelen kategoriler:", data);
       setCategories(data);
     }
 

@@ -2,7 +2,7 @@ import ReactMarkdown from 'react-markdown';
 import Image from 'next/image';
 
 async function getContent(slug) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/post/slug/${slug}`, {
+  const res = await fetch(`${process.env.API_BASE_URL}/api/post/slug/${slug}`, {
     cache: 'no-store',
   });
 

@@ -10,8 +10,8 @@ export default function Footer() {
   useEffect(() => {
     async function fetchData() {
       const [pagesRes, authorRes] = await Promise.all([
-        fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/pages?place=footer`),
-        fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/author`),
+        fetch(`/api/pages?place=footer`),
+        fetch(`/api/author`),
       ]);
 
       const pageData = await pagesRes.json();

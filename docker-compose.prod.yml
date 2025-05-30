@@ -1,0 +1,28 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./data:/app/data  # Host'taki data klasörü konteynere bağlanıyor
+    env_file:
+      - ./backend/.env.docker
+    environment:
+      - NODE_ENV=production
+    command: npm start
+
+
+  frontend:
+    build: 
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_API_BASE_URL: http://host.docker.internal:3001
+        API_BASE_URL: http://backend:3001
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    env_file:
+      - ./frontend/.env.local
+    environment:
+      - NODE_ENV=production

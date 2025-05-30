@@ -5,7 +5,7 @@ import Sidebar from './components/Sidebar';
 
 export async function generateMetadata() {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/author`, {
+    const res = await fetch(`${process.env.API_BASE_URL}/api/author`, {
       next: { revalidate: 60 }, // cache opsiyonu
     });
 
