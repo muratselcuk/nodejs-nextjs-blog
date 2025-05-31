@@ -21,7 +21,7 @@ RUN npm install
 COPY . .
 
 # Staging'de build isteğe bağlı olabilir (next dev/next start seçimine göre)
-# RUN npm run build
+RUN npm run build
 
 EXPOSE 3000
 
