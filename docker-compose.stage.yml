@@ -4,8 +4,8 @@ services:
     ports:
       - "3001:3001"
     volumes:
-      - ./backend:/app         # KODLARI container’a bağlıyoruz
-      - backend-data:/app/data # SQLITE VERİLERİ ayrı volume’da
+     # - ./backend:/app         # KODLARI container’a bağlıyoruz
+      - ./data:/app/data # SQLITE VERİLERİ ayrı volume’da
     env_file:
       - ./backend/.env.docker
     environment:
@@ -18,14 +18,11 @@ services:
       - "3000:3000"
     depends_on:
       - backend
-    env_file:
-      - ./frontend/.env.local
+    #env_file:
+    #  - ./frontend/.env.local
     environment:
       - NODE_ENV=development
-      - NEXT_PUBLIC_API_BASE_URL=http://localhost:3001
+      - NEXT_PUBLIC_API_BASE_URL=http://ThinkPadE14:3001
       - API_BASE_URL=http://backend:3001
-    volumes:
-      - ./frontend:/app
-
-volumes:
-  backend-data:
+    #volumes:
+      #- ./frontend:/app
