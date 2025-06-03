@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { api } from '../../lib/api';
 
 export default function ProfileWidget() {
   const [author, setAuthor] = useState(null);
@@ -11,7 +12,7 @@ export default function ProfileWidget() {
   useEffect(() => {
     const fetchAuthor = async () => {
       try {
-        const res = await fetch(`/api/author`);
+        const res = await fetch(api('author'));
         const data = await res.json();
         setAuthor(data);
       } catch (error) {

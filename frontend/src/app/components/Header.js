@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { api } from '../lib/api';
 
 export default function Header() {
   const [pages, setPages] = useState([]);
@@ -10,8 +11,8 @@ export default function Header() {
   useEffect(() => {
     async function fetchData() {
       const [pagesRes, authorRes] = await Promise.all([
-        fetch(`/api/pages?place=header`),
-        fetch(`/api/author`),
+        fetch(api('pages?place=header')),
+        fetch(api('author')),
       ]);
 
       const pageData = await pagesRes.json();

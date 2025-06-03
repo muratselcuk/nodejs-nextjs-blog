@@ -80,7 +80,7 @@ jobs:
             --platform linux/arm/v7 \
             -f frontend/Dockerfile \
             --build-arg API_BASE_URL=http://backend:3001 \
-            --build-arg NEXT_PUBLIC_API_BASE_URL=https://www.muratselcuk.com/api \
+            --build-arg NEXT_PUBLIC_API_BASE_URL=https://www.muratselcuk.com \
             -t ghcr.io/${{ github.repository }}-frontend:prod \
             --push \
             ./frontend

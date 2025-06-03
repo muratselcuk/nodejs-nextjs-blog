@@ -2,13 +2,14 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { api } from '../../lib/api';
 
 export default function CategoryWidget() {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     async function fetchCategories() {
-      const res = await fetch(`/api/categories`);
+      const res = await fetch(api('categories'));
       const data = await res.json();
       console.log("📦 Gelen kategoriler:", data);
       setCategories(data);
